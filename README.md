@@ -21,7 +21,7 @@ if origins are different the for the first time we have to forcefully push
 git push origin main -f
 ```
 
-
-```bash
-Conflict - edited from the local
+### Step 4 - Conflict demo
+```
+Conflict will occur if we try to push before pulling from the repo
 ```
