@@ -27,5 +27,3 @@ def get_collection_as_dataframe(database_name:str, collection_name:str)->pd.Data
 
     except Exception as e:
         raise SensorException(e, sys)
-
-    

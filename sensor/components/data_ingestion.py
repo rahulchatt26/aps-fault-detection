@@ -1,4 +1,4 @@
-from sensor import utils
+from sensor.utils import get_collection_as_dataframe
 from sensor.entity import config_entity
 from sensor.entity import artifact_entity
 from sensor.exception import SensorException
@@ -21,7 +21,7 @@ class DataIngestion:
             logging.info(f"Exporting collection data as pandas dataframe")
 
             #Exporting collection data as pandas dataframe
-            df:pd.DataFrame = utils.get_collection_as_dataframe(
+            df:pd.DataFrame = get_collection_as_dataframe(
                 database_name=self.data_ingestion_config.database_name, 
                 collection_name=self.data_ingestion_config.collection_name)
 
@@ -41,6 +41,7 @@ class DataIngestion:
 
             logging.info("spliting the dataset into train and test set")
             #split dataset into train and test set
+            train_df, test_df = train_test_split(df,test_size=self.data_ingestion_config.test_size)
             train_df, test_df = train_test_split(df,test_size=self.data_ingestion_config.test_size)
 
             logging.info("create dataset directory folder if not available")
